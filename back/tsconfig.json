@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+	"target": "ES2017",
+	"module": "commonjs",
+	"outDir": "./dist",
+	"rootDir": "./src",
+	"strict": true,
+	"esModuleInterop": true,
+	"skipLibCheck": true,
+	"forceConsistentCasingInFileNames": true,
+	"emitDecoratorMetadata": true,
+	"experimentalDecorators": true,
+	"types": ["express"],
+	
+	},
+	"include": ["src/**/*.ts","custom.d.ts", "prisma/**/*.ts"],
+	"exclude": ["node_modules"]
+}

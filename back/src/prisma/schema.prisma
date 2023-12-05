@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserState {
+  OFFLINE
+  ONLINE
+}
+
+model User {
+  id                Int             @id @default(autoincrement())
+  email             String          @unique
+  name              String          @unique
+  nickname          String          @unique
+  twoFactorSecret   String          @unique
+  twoFactorEnabled  Boolean         @default(false)
+  state             UserState
+  //pfp_url           String?
+}
+
+
