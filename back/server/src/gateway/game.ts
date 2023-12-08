@@ -1,9 +1,6 @@
-import { OnModuleInit } from '@nestjs/common';
 import {
-  MessageBody,
   OnGatewayConnection,
   OnGatewayDisconnect,
-  SubscribeMessage,
   WebSocketGateway,
   WebSocketServer,
 } from '@nestjs/websockets';
@@ -14,10 +11,10 @@ let room = 0;
 
 @WebSocketGateway({
   cors: {
-    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'http://localhost:3003'],
+    origin: ['http://localhost:any'],
   },
 })
-export class MyGateway implements OnGatewayConnection, OnGatewayDisconnect {
+export class GameServer implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer()
   server: Server;
   
